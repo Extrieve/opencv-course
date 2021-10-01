@@ -1,7 +1,7 @@
 import cv2 as cv
 
 img = cv.imread(
-    'D:\Documents\OneDrive - University of South Florida\Python\OpenCV Tutorial\opencv-course\Resources\Photos\group 1.jpg')
+    'D:\Documents\OneDrive - University of South Florida\Python\OpenCV Tutorial\opencv-course\Resources\Photos\group 2.jpg')
 cv.imshow('Lady Face', img)
 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
@@ -10,7 +10,7 @@ gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 haar_cascade = cv.CascadeClassifier('haar_face.xml')
 
 faces_rect = haar_cascade.detectMultiScale(
-    gray, scaleFactor=1.1, minNeighbors=3)
+    gray, scaleFactor=1.1, minNeighbors=7)
 
 print(f'Number of faces found = {len(faces_rect)}')
 
