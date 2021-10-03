@@ -28,17 +28,17 @@ def create_train():
             gray = cv.cvtColor(img_array, cv.COLOR_BGR2GRAY)
 
             faces_rect = haar_cascade.detectMultiScale(
-                gray, scaleFactor=1.1, minNeighbors=4)
+                gray, scaleFactor=1.1, minNeighbors=1)
 
             for(x, y, w, h) in faces_rect:
-                faces_roi = gray[y:y+h, x:x+w]
+                faces_roi = gray[y:y+h, x:x+h]
                 features.append(faces_roi)
                 labels.append(label)
 
 
 create_train()
-#print(f'Length of the features = {len(features)}')
-#print(f'Length of the labels = {len(labels)}')
+print(f'Length of the features = {len(features)}')
+print(f'Length of the labels = {len(labels)}')
 
 # Transform the list into numpy arrays for better performance
 features = np.array(features, dtype='object')
